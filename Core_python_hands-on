@@ -1,23 +1,32 @@
 # 1. WAP to print "Hello my name is {name}"
 name='Harshit'
 print(f"Hello my name is {name}")
+#output:
+#Hello my name is Harshit
+
 
 # 2. WAP to print data type of "Hello"
 print("the data type of hello is ",type('Hello'))
-the data type of hello is  <class 'str'>
+#output:
+#the data type of hello is  <class 'str'>
+
 
 # 3. WAP to check the memory size of 5+ 4j
 import sys 
 cplx=5+4j
 print("Size of 5+4j is ",sys.getsizeof(cplx))
-# Size of 5+4j is  32
+#Output:
+#Size of 5+4j is  32
+
 
 
 # 4. WAP to convert "1" into 1
 str_num="1"
 print(int(str_num))
-# 1
+#output:
+#1
 
 # 5. WAP to convert False into int value
 print(int(False))
-# 0
+#output:
+#0

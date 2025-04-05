@@ -61,3 +61,6 @@ plot('ROCRpref')
 plot('ROCRpref,colorize=TRUE')
 plot('ROCRpref,colorize=TRUE',print.cutoffs.at=seq(0,1,by = 0.1),text.adj =
 c(-0.2,1.7))
+
+
+https://services.odata.org/V4/Northwind/Northwind.svc/

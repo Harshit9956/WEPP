@@ -1,0 +1,63 @@
+POWERBI PRACTICALS
+PRACTICAL NO.3
+install.packages("party")
+library(party)
+input.dat = readingskills[c(1:105),]
+png(file = "decisiontree.png")
+output = tree(nativespeaker~age+shoesize+score data = input.dat)
+plot(output)
+dev.off
+PRACTICAL NO.4 K MEANS
+library(iris)
+iris
+newiris<-iris
+newiris$Species<-NULL
+newiris
+kc<-kmeans(newiris,3)
+kc
+table(iris$Species,kc$cluster)
+plot(newiris[c("Sepal.Length","Sepal.Width")],col=kc$cluster)
+points(kc$centers[,c("Sepal.Length","Sepal.Width")],col=1:3,pch=8,cex=2)
+PRACTICAL NO.5 LINEAR REGRESSION
+X<-c(151,174,138,186,128,136,179,163,152,131)
+y<-c(63,81,56,91,47,57,76,72,62,48)
+relation<-lm(y~x)
+print(relation)
+print(summary(relation))
+a<-data.frame(x=170)
+result<-predict(relation,a)
+print(result)
+plot9y,x,col="blue",main="Height&Weight Regression +
+abline(lm(x~y)),cex=1.3,pch=16,
+PRACTICAL NO.6 TIME SERIES
+rainfall1<-c(799,174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,965)
+rainfall2<-c(655,1306.9,1323.4,1172.2,562.2,824.4,1265.5,799.6,1105.6,)
+combined.rainfall<-matrix(c(rainfall1,rainfall2),nrow=12)
+rainfall.timeseries<-ts(combined.rainfall,start=c(2012,1),frequency = 12)
+print(rainfall.timeseries)
+plot(rainfall.timeseries)
+PRACTICAL NO.9 LOGISTIC REGRESSION
+quality<-read.csv()
+str(quality)
+table(quality$poorcare)
+library(coTools)
+set.seed(88)
+split=sample.split(quality$poorcare,splitratio=0.75)
+quality_Train = subset(quality,split == TRUE)
+quality_Test = subset(quality,split == FALSE)
+nrow(quality_Test)
+qualityLog = glm(poorcare~officevisits +
+Narcotics,data=qualityTrain,Family=binomial)
+summary(qualityLog)
+predict_Train = predict(qualityLog, type = "response")
+summary(predict_Train)
+tapply(predict_Train,quality_Train$poorcare,mean)
+table(quality_Train$poorcare,predict_Train>0.5)
+table(quality_Train$poorcare,predict_Train>0.2)
+library(ROCR)
+ROCRPred = prediction(quality_Train$poorcare)
+ROCRpref = performance(ROCRpred,"tpr","fpr")
+plot('ROCRpref')
+plot('ROCRpref,colorize=TRUE')
+plot('ROCRpref,colorize=TRUE',print.cutoffs.at=seq(0,1,by = 0.1),text.adj =
+c(-0.2,1.7))
